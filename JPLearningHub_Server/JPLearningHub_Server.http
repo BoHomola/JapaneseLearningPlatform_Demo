@@ -1,0 +1,6 @@
+@JPLearningHub_Server_HostAddress = http://localhost:5272
+
+GET {{JPLearningHub_Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

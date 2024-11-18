@@ -1,0 +1,31 @@
+services:
+  jp_server_release:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db_release
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+    networks:
+      - default
+
+  db_release:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=${DB_NAME_RELEASE}
+      - POSTGRES_USER=${DB_USER_RELEASE}
+      - POSTGRES_PASSWORD=${DB_PASSWORD_RELEASE}
+    volumes:
+      - pgdata_release:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+
+volumes:
+  pgdata_release:
+
+networks:
+  default:
+    driver: bridge

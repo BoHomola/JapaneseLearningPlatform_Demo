@@ -1,0 +1,108 @@
+# .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Auto-generated files
+*.vspscc
+*.vssscc
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+.vscode/*
+
+# Visual Studio directories
+.vs/
+.vs/*
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Configuration files
+appsettings*.json
+
+# User Secrets
+secrets.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+._*
+
+# Logs
+*.log
+
+# Build directories
+bin/
+obj/
+
+# NPM packages
+node_modules/
+
+# Yarn packages
+.yarn/
+.yarnrc.yml
+
+# Rider directories
+.idea/
+.idea/*
+
+# JetBrains Rider's logs
+.idea/.idea/workspace.xml
+
+# Rider's index
+.idea/.idea/workspace
+
+# Rider's other config
+.idea/.idea/dictionaries
+.idea/.idea/vcs.xml
+
+# Rider's build artifacts
+.idea/.idea/output
+
+# Rider's libraries
+.idea/.idea/libraries
+
+# Rider's keymaps
+.idea/.idea/keymaps
+
+# Rider's usage data
+.idea/.idea/usages
+
+# Rider's tasks
+.idea/.idea/tasks
+
+.env

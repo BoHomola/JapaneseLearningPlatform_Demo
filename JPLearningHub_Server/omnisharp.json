@@ -1,0 +1,66 @@
+{
+  "FormattingOptions": {
+    "EnableEditorConfigSupport": true,
+    "OrganizeImports": true,
+    "SpaceAfterCast": true,
+    "SpaceWithinSingleLineArrayInitializer": false
+  },
+  "RenameOptions": {
+    "RenameInComments": true,
+    "RenameOverloads": true,
+    "RenameInStrings": true
+  },
+  "ImplementTypeOptions": {
+    "InsertionBehavior": "WithOtherMembersOfTheSameKind",
+    "PropertyGenerationBehavior": "PreferAutoProperties"
+  },
+  "CodeStyleOptions": {
+    "PreferExplicitTypeDeclaration": true,
+    "PreferImplicitTypeDeclaration": false,
+    "PreferredBraceStyle": "AlwaysAdd",
+    "PreferredUsingDirectivesPlacement": "OutsideNamespace"
+  },
+  "CSharpFormattingOptions": {
+    "NewLinesForBracesInControl": true,
+    "NewLinesForBracesInMethods": true,
+    "NewLinesForBracesInProperties": true,
+    "NewLinesForBracesInAccessors": true,
+    "NewLinesForBracesInAnonymousMethods": true,
+    "NewLinesForBracesInControlBlocks": true,
+    "NewLinesForBracesInAnonymousTypes": true,
+    "NewLinesForBracesInObjectCollectionArrayInitializers": true,
+    "NewLinesForBracesInLambdaExpressionBody": true
+  },
+  "CodeFocusOptions": {
+    "Enabled": true
+  },
+  "Plugins": {
+    "Enabled": true
+  },
+  "LanguageServer": {
+    "Enable": true
+  },
+  "InlayHintsOptions": {
+    "EnableForParameters": true,
+    "EnableForTypes": true,
+    "EnableForLambdaParameterTypes": true
+  },
+  "FileOptions": {
+    "SystemExcludeSearchPatterns": [
+      "**/node_modules/**/*",
+      "**/bin/**/*",
+      "**/obj/**/*"
+    ],
+    "ExcludeSearchPatterns": []
+  },
+  "RoslynExtensionsOptions": {
+    "EnableAnalyzersSupport": true,
+    "LocationPaths": [],
+    "DiagnosticFilters": [
+      {
+        "Id": "IDE0058",
+        "FilterLevel": "None"
+      }
+    ]
+  }
+}

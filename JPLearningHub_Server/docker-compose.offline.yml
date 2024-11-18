@@ -1,0 +1,20 @@
+services:
+  db_offline:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=${DB_NAME_OFFLINE}
+      - POSTGRES_USER=${DB_USER_OFFLINE}
+      - POSTGRES_PASSWORD=${DB_PASSWORD_OFFLINE}
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+
+volumes:
+  pgdata_dev:
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,22 @@
+# Stage 1: Base image with the runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 8080
+
+# Stage 2: Build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+# COPY ["./src/JPLearningHub_Server/JPLearningHub_Server.csproj", "./"]
+# RUN dotnet restore "JPLearningHub_Server.csproj"
+COPY . .
+# RUN dotnet build "./src/JPLearningHub_Server/JPLearningHub_Server.csproj" -o /app/build
+# Stage 3: Publish the application
+FROM build AS publish
+RUN dotnet publish "./src/JPLearningHub_Server/JPLearningHub_Server.csproj" -o /app/publish
+
+# Stage 4: Final stage with runtime and tools
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+ENTRYPOINT ["dotnet", "JPLearningHub_Server.dll"]

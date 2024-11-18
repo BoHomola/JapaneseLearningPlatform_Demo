@@ -1,0 +1,35 @@
+# Stage 1: Base image with the runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 8080
+
+# Stage 2: Build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["JPLearningHub_Server.csproj", "./"]
+RUN dotnet restore "JPLearningHub_Server.csproj"
+COPY . .
+RUN dotnet build "JPLearningHub_Server.csproj" -c Release -o /app/build
+
+# Stage 3: Publish the application
+FROM build AS publish
+RUN dotnet publish "JPLearningHub_Server.csproj" -c Release -o /app/publish
+
+# Stage 4: Final stage with runtime and tools
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+# Copy the project file and other necessary files for EF Core tools
+COPY JPLearningHub_Server.csproj .
+COPY . .
+
+# Install EF Core tools
+ENV PATH="${PATH}:/root/.dotnet/tools"
+RUN dotnet tool install --global dotnet-ef
+
+# Copy migration script
+COPY migrate.sh .
+RUN chmod +x migrate.sh
+
+ENTRYPOINT ["./migrate.sh"]
